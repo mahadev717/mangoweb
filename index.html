@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CG Brothers | Global Agricultural Import & Export — Established 1988</title>
+  <meta name="description" content="Official APEDA Certified Merchant Exporters of GI-Tagged Ratnagiri Alphonso, Gir Kesar, 1121 Basmati Rice, High-Curcumin Spices & Cold-Chain Logistics.">
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- React 18 & Babel Standalone CDNs -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+  <!-- React App Root Container -->
+  <div id="root"></div>
+
+  <!-- React 18 Component Tree -->
+  <script type="text/babel">
+    const COMMODITY_DATA = [
+      {
+        id: "ratnagiri-hapus",
+        category: "Fruits",
+        name: "Classic Ratnagiri Alphonso Hapus",
+        tag: "EXPORT GRADE • GI TAG NO. 139",
+        origin: "Ratnagiri Coastal Orchards, Maharashtra",
+        desc: "The undisputed King of Mangoes. Tree-matured, intensely sweet, 100% fiberless saffron velvet pulp, shipped worldwide via temperature-controlled air freight.",
+        image: "assets/images/alphonso.png",
+        priceDozen: "₹ 2,499",
+        priceVal: 2499,
+        originalPrice: "₹ 2,999",
+        rating: 5.0,
+        reviewsCount: 142,
+        sweetness: 98,
+        aroma: 96,
+        brix: "19° – 22° Brix Certified",
+        avgWeight: "250g – 320g per fruit",
+        flavors: ["🍯 Saffron Honey", "✨ 100% Fiberless", "🌐 Global Express Air"]
+      },
+      {
+        id: "devgad-alphonso",
+        category: "Fruits",
+        name: "Devgad GI Organic Alphonso",
+        tag: "ORGANIC CERTIFIED • DEVGAD",
+        origin: "Devgad Sea-Breeze Orchards, Sindhudurg",
+        desc: "Grown in mineral-rich laterite soil bathed in salty ocean winds. Silky smooth texture with unmatchable natural sweetness.",
+        image: "assets/images/hero.png",
+        priceDozen: "₹ 2,799",
+        priceVal: 2799,
+        originalPrice: "₹ 3,299",
+        rating: 5.0,
+        reviewsCount: 98,
+        sweetness: 99,
+        aroma: 99,
+        brix: "20° – 23° Brix Certified",
+        avgWeight: "260g – 330g per fruit",
+        flavors: ["🌊 Ocean Breeze", "🧈 Butter Smooth", "🌱 100% Organic"]
+      },
+      {
+        id: "gir-kesar",
+        category: "Fruits",
+        name: "Gir Saffron Kesar Reserve",
+        tag: "GI TAGGED • GIR FOOTHILLS",
+        origin: "Gir Sanctuary Foothills, Gujarat",
+        desc: "Renowned for its intoxicating saffron perfume and deep golden-orange flesh. Known as the Queen of Indian Produce.",
+        image: "assets/images/kesar.png",
+        priceDozen: "₹ 1,899",
+        priceVal: 1899,
+        originalPrice: "₹ 2,199",
+        rating: 4.9,
+        reviewsCount: 76,
+        sweetness: 94,
+        aroma: 98,
+        brix: "18° – 20° Brix Certified",
+        avgWeight: "240g – 300g per fruit",
+        flavors: ["🌸 Jasmine Aroma", "🍊 Saffron Pulp", "🦁 Gir Sanctuary"]
+      },
+      {
+        id: "heritage-spices",
+        category: "Spices",
+        name: "Salem Turmeric & Guntur Red Chilli",
+        tag: "EXPORT SPICES • APEDA CERTIFIED",
+        origin: "Salem (Tamil Nadu) & Guntur (Andhra Pradesh)",
+        desc: "High-curcumin Salem turmeric fingers and deep red Guntur Sannam chillies. Sterilized and lab-certified for international trade.",
+        image: "assets/images/spices.png",
+        priceDozen: "₹ 1,299",
+        priceVal: 1299,
+        originalPrice: "₹ 1,599",
+        rating: 4.9,
+        reviewsCount: 88,
+        sweetness: 85,
+        aroma: 99,
+        brix: "5.2% High Curcumin",
+        avgWeight: "1kg Export Vacuum Pack",
+        flavors: ["🔥 High Curcumin", "🌶️ Rich Pungency", "🌐 Phytosanitary Sealed"]
+      },
+      {
+        id: "basmati-grain",
+        category: "Grains",
+        name: "1121 XXL Royal Steam Basmati Rice",
+        tag: "EXPORT GRADE • PUNJAB ESTATES",
+        origin: "Punjab & Haryana Himalayan Basmati Belt",
+        desc: "Extra-long grain aromatic Basmati rice aged for 24 months. Elongates up to 22mm on cooking with a non-sticky royal aroma.",
+        image: "assets/images/grains.png",
+        priceDozen: "₹ 1,850",
+        priceVal: 1850,
+        originalPrice: "₹ 2,200",
+        rating: 5.0,
+        reviewsCount: 110,
+        sweetness: 88,
+        aroma: 97,
+        brix: "24-Month Aged Grain",
+        avgWeight: "5kg Luxury Jute Tote",
+        flavors: ["🌾 22mm Elongation", "👑 2-Year Aged", "✨ Non-Sticky Silk"]
+      },
+      {
+        id: "tamarind-commodities",
+        category: "Commodities",
+        name: "Seedless Processed Tamarind & Pulses",
+        tag: "AGRO COMMODITIES • FSSAI",
+        origin: "Krishnagiri & Dharmapuri Estates, Tamil Nadu",
+        desc: "Premium seedless sour tamarind slabs and sun-dried organic pulses. Packed in moisture-resistant export food grade barrier bags.",
+        image: "assets/images/tamarind.png",
+        priceDozen: "₹ 999",
+        priceVal: 999,
+        originalPrice: "₹ 1,250",
+        rating: 4.8,
+        reviewsCount: 45,
+        sweetness: 82,
+        aroma: 90,
+        brix: "100% Seedless Block",
+        avgWeight: "2kg Export Brick Pack",
+        flavors: ["🍋 Natural Tang", "🌱 Organic Sorted", "🔒 Food-Grade Sealed"]
+      },
+      {
+        id: "export-logistics",
+        category: "Logistics",
+        name: "Global Cold-Chain Freight & Cargo",
+        tag: "APEDA • AIR & OCEAN FREIGHT",
+        origin: "Mumbai Air Cargo Complex & JNPT Port Dispatch",
+        desc: "End-to-end phytosanitary clearance, custom clearance, refrigerated palletization, and door-to-door air freight to North America, Europe & Gulf.",
+        image: "assets/images/logistics.png",
+        priceDozen: "Custom Quote",
+        priceVal: 0,
+        originalPrice: "B2B Rates",
+        rating: 5.0,
+        reviewsCount: 210,
+        sweetness: 100,
+        aroma: 100,
+        brix: "48h Global Express Air",
+        avgWeight: "Pallet & Container Load",
+        flavors: ["✈️ Express Air Cargo", "🚢 Ocean Reefer Container", "📜 Phytosanitary Clearance"]
+      },
+      {
+        id: "royal-gifting-box",
+        category: "Gifting",
+        name: "The Vintage VIP Gift Chest",
+        tag: "VIP LUXURY GIFTING",
+        origin: "Handpicked Export Grade Produce & Spices",
+        desc: "An opulent gift chest in deep emerald and embossed 24k gold foil, lined with velvet paper and personalized wax-sealed letter.",
+        image: "assets/images/gifting.png",
+        priceDozen: "₹ 3,999",
+        priceVal: 3999,
+        originalPrice: "₹ 4,500",
+        rating: 5.0,
+        reviewsCount: 64,
+        sweetness: 99,
+        aroma: 98,
+        brix: "21° Brix Certified",
+        avgWeight: "Selected 300g+ Jumbo Fruits",
+        flavors: ["🎁 Teak Gift Chest", "✉️ Handwritten Note", "✨ Jumbo Selection"]
+      }
+    ];
+
+    const FAQ_DATA = [
+      {
+        q: "What products do CG Brothers import and export globally?",
+        a: "We specialize in APEDA-certified exports of GI-Tagged Ratnagiri Alphonso & Gir Kesar mangoes, 1121 XXL Basmati Rice, High-Curcumin Salem Turmeric, Guntur Red Chillies, Seedless Tamarind, and processed agro-commodities. We also offer cold-chain air & ocean freight logistics."
+      },
+      {
+        q: "What international quality certifications do your exports hold?",
+        a: "Our shipments are 100% compliant with international trade standards, holding APEDA Registration, FSSAI License No. 11521034000889, Phytosanitary Health Certificates, USDA Organic Verification, and Global GAP compliance."
+      },
+      {
+        q: "How does your 48-Hour Air Freight & Reefer Ocean Shipping work?",
+        a: "Fresh produce is packed into temperature-buffered insulated cartons at our Pawas & Devgad cold hubs and flown via direct air cargo to North America, Europe, and the Middle East within 48 hours."
+      },
+      {
+        q: "Do you offer B2B bulk contracts for importers and distributors?",
+        a: "Yes! We cater to international distributors, supermarket chains, and VIP corporate clients with custom private labeling, palletized shipments, and full container load (FCL) bookings."
+      }
+    ];
+
+    const REALISTIC_TOASTS = [
+      { text: "✦ Air Freight Pallet of Ratnagiri Hapus dispatched to Dubai International Airport", time: "2 mins ago" },
+      { text: "✦ 5 Tons 1121 XXL Basmati booked for Export to London, UK", time: "5 mins ago" },
+      { text: "✦ Salem Turmeric & Guntur Chilli Vacuum Chests shipped to Toronto, Canada", time: "8 mins ago" },
+      { text: "✦ Devgad Organic Alphonso Reserve dispatched to Singapore Concierge", time: "12 mins ago" }
+    ];
+
+    function App() {
+      const [isModalOpen, setIsModalOpen] = React.useState(false);
+      const [selectedMango, setSelectedMango] = React.useState(COMMODITY_DATA[0]);
+      const [customMango, setCustomMango] = React.useState(COMMODITY_DATA[0]);
+      const [customSize, setCustomSize] = React.useState("1 Dozen Executive Box");
+      const [harvestCount, setHarvestCount] = React.useState(12840);
+      const [pincode, setPincode] = React.useState("");
+      const [pincodeStatus, setPincodeStatus] = React.useState(null);
+      const [activeTab, setActiveTab] = React.useState('unboxing');
+      const [currentToast, setCurrentToast] = React.useState(null);
+      const [audioPlaying, setAudioPlaying] = React.useState(false);
+      const [openFaq, setOpenFaq] = React.useState(null);
+      const [isLoading, setIsLoading] = React.useState(true);
+
+      // E-Commerce Cart & Filter State
+      const [cart, setCart] = React.useState([]);
+      const [isCartOpen, setIsCartOpen] = React.useState(false);
+      const [categoryFilter, setCategoryFilter] = React.useState('All');
+      const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+      // Smooth Page Opening Reveal
+      React.useEffect(() => {
+        const timer = setTimeout(() => setIsLoading(false), 650);
+        return () => clearTimeout(timer);
+      }, []);
+
+      // Cart Helper Methods
+      const addToCart = (mango) => {
+        setCart(prev => {
+          const existing = prev.find(item => item.id === mango.id);
+          if (existing) {
+            return prev.map(item => item.id === mango.id ? { ...item, qty: item.qty + 1 } : item);
+          }
+          return [...prev, { ...mango, qty: 1 }];
+        });
+        setIsCartOpen(true);
+      };
+
+      const removeFromCart = (id) => {
+        setCart(prev => prev.filter(item => item.id !== id));
+      };
+
+      const cartTotal = cart.reduce((sum, item) => sum + (item.priceVal * item.qty), 0);
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+
+      // Filter Logic
+      const filteredCommodities = COMMODITY_DATA.filter(m => {
+        if (categoryFilter === 'All') return true;
+        return m.category === categoryFilter;
+      });
+
+      // Live Harvest Timer & Periodic Toasts
+      React.useEffect(() => {
+        const interval = setInterval(() => {
+          setHarvestCount(prev => Math.max(12000, prev - Math.floor(Math.random() * 3)));
+        }, 10000);
+
+        let toastIdx = 0;
+        const toastInterval = setInterval(() => {
+          setCurrentToast(REALISTIC_TOASTS[toastIdx % REALISTIC_TOASTS.length]);
+          toastIdx++;
+        }, 15000);
+
+        const initialToastTimer = setTimeout(() => {
+          setCurrentToast(REALISTIC_TOASTS[0]);
+        }, 4000);
+
+        return () => {
+          clearInterval(interval);
+          clearInterval(toastInterval);
+          clearTimeout(initialToastTimer);
+        };
+      }, []);
+
+      // Scroll Reveal & Category Filter Observer
+      React.useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              const fills = entry.target.querySelectorAll(".meter-fill");
+              fills.forEach(fill => {
+                const val = fill.getAttribute("data-fill");
+                if (val) fill.style.width = val;
+              });
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll(".reveal-on-scroll, .customizer-box, .traceability-card, .review-card, .timeline-month, .founders-letter-card, .grand-closure-card, .faq-item").forEach(el => {
+          el.classList.add("reveal-on-scroll");
+          observer.observe(el);
+        });
+
+        // Ensure newly filtered cards are always visible immediately
+        document.querySelectorAll(".variety-card").forEach(el => {
+          el.classList.add("visible");
+          const fills = el.querySelectorAll(".meter-fill");
+          fills.forEach(fill => {
+            const val = fill.getAttribute("data-fill");
+            if (val) fill.style.width = val;
+          });
+        });
+      }, [categoryFilter]);
+
+      // 3D Parallax Tilt Effect & Specular Light Reflection on MouseMove
+      React.useEffect(() => {
+        const handleMouseMove = (e) => {
+          const heroVisual = document.querySelector('.hero-visual-frame');
+          if (heroVisual) {
+            const { clientX, clientY } = e;
+            const { innerWidth, innerHeight } = window;
+            const rotateX = ((clientY / innerHeight) - 0.5) * -12;
+            const rotateY = ((clientX / innerWidth) - 0.5) * 12;
+            const frame = heroVisual.querySelector('.vintage-frame');
+            if (frame) {
+              frame.style.transform = `translateZ(30px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            }
+          }
+
+          document.querySelectorAll('.variety-card, .founders-letter-card').forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+            card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+          });
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+      }, []);
+
+      const handleOpenModal = (mango) => {
+        setSelectedMango(mango);
+        setIsModalOpen(true);
+      };
+
+      const handleCheckPincode = () => {
+        if (pincode.length === 6 && !isNaN(pincode)) {
+          const tomorrow = new Date();
+          tomorrow.setDate(tomorrow.getDate() + 2);
+          const dateStr = tomorrow.toLocaleDateString('en-IN', { weekday: 'short', month: 'short', day: 'numeric' });
+          setPincodeStatus({ 
+            success: true, 
+            text: `✦ Express Refrigerated Courier & Cargo Dispatch Available for ${pincode}! (Dispatch Window: ${dateStr})` 
+          });
+        } else {
+          setPincodeStatus({ success: false, text: "Please enter a valid 6-digit Indian Pincode or Port Code." });
+        }
+      };
+
+      const handleOrderSubmit = (e) => {
+        e.preventDefault();
+        const name = e.target.custName.value;
+        const phone = e.target.custPhone.value;
+        const city = e.target.custCity.value;
+        alert(`✦ AGRO IMPORT & EXPORT RESERVATION CONFIRMED ✦\n\nGreetings ${name}!\n\nYour trade inquiry for "${selectedMango.name}" to ${city} has been logged in our master ledger.\n\nOur Trade Concierge will reach out to ${phone} via WhatsApp shortly with B2B rates and phytosanitary details.`);
+        setIsModalOpen(false);
+      };
+
+      const toggleAudio = () => {
+        setAudioPlaying(!audioPlaying);
+      };
+
+      const toggleFaq = (idx) => {
+        setOpenFaq(openFaq === idx ? null : idx);
+      };
+
+      return (
+        <div>
+          {/* Royal Unveiling Preloader Screen */}
+          <div className={`preloader-overlay ${!isLoading ? 'fade-out' : ''}`}>
+            <div className="preloader-crest">CG</div>
+            <div className="preloader-title">CG BROTHERS • AGRO IMPORTERS & EXPORTERS</div>
+            <div className="preloader-sub">UNVEILING 2026 GLOBAL AGRICULTURAL TRADE CATALOGUE...</div>
+          </div>
+
+          {/* Fixed Stationary Header Container */}
+          <div className="sticky-header-container">
+            {/* Top Announcement Bar */}
+            <div className="top-bar">
+              <div className="container">
+                <div className="top-bar-inner">
+                  <div className="top-bar-ticker">
+                    <span className="pulse-dot"></span>
+                    <span>✦ ESTABLISHED 1988 ✦ AGRO IMPORTERS & EXPORTERS ✦ MANGOES, SPICES, BASMATI & FREIGHT ✦</span>
+                  </div>
+                  <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <span>🌐 APEDA & FSSAI Certified</span>
+                    <span style={{ color: 'var(--gold-bright)' }}>✦</span>
+                    <span>📞 Global Trade Desk: +91 98765 43210</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Main Navigation Header */}
+            <header className="main-header" id="mainHeader">
+              <div className="container">
+                <div className="header-inner">
+                  <a href="#home" className="brand-logo">
+                    <div className="logo-crest">CG</div>
+                    <div className="logo-text-group">
+                      <span className="logo-main-title">CG BROTHERS</span>
+                      <span className="logo-subtitle">AGRICULTURAL IMPORT & EXPORT</span>
+                    </div>
+                  </a>
+
+                  <ul className="nav-links">
+                    <li className="nav-item"><a href="#home" className="active">Home</a></li>
+                    <li className="nav-item"><a href="#heritage">Heritage</a></li>
+                    <li className="nav-item"><a href="#catalog">Commodities</a></li>
+                    <li className="nav-item"><a href="#customizer">Custom Orders</a></li>
+                    <li className="nav-item"><a href="#protocol">Quality Guide</a></li>
+                    <li className="nav-item"><a href="#faq">FAQ</a></li>
+                    <li className="nav-item"><a href="#reviews">Reviews</a></li>
+                  </ul>
+
+                  <div className="header-actions">
+                    <button className="btn-vintage btn-vintage-outline" onClick={() => setIsCartOpen(true)} style={{ position: 'relative' }}>
+                      🛒 Order ({totalItems})
+                    </button>
+                    <button className="btn-vintage btn-vintage-primary" onClick={() => handleOpenModal(COMMODITY_DATA[0])}>
+                      ✦ Inquiry
+                    </button>
+                    <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle Mobile Menu">
+                      {isMobileMenuOpen ? '✕' : '☰'}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile Navigation Drawer */}
+              <div className={`mobile-nav-drawer ${isMobileMenuOpen ? 'active' : ''}`}>
+                <a href="#home" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Home</a>
+                <a href="#heritage" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Heritage</a>
+                <a href="#catalog" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Commodities</a>
+                <a href="#customizer" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Custom Orders</a>
+                <a href="#protocol" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Quality Guide</a>
+                <a href="#faq" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
+                <a href="#reviews" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Reviews</a>
+              </div>
+            </header>
+          </div>
+
+          <main>
+            {/* Hero Section */}
+            <section className="hero-vintage" id="home">
+              <div className="container">
+                <div className="hero-grid">
+                  <div className="hero-content reveal-on-scroll">
+                    <div className="hero-tag">
+                      🌐 ANNO 1988 • GLOBAL AGRICULTURAL IMPORT & EXPORT MERCHANT 🌐
+                    </div>
+                    <h1 className="hero-headline font-serif">
+                      World-Class Indian Agriculture, <br />
+                      <span className="text-gold-gradient">Delivered Across Oceans.</span>
+                    </h1>
+                    <p className="hero-subhead drop-cap">
+                      From tree-matured Ratnagiri Alphonso & Gir Kesar to 1121 XXL Basmati, High-Curcumin Spices & Cold-Chain Express Freight. Delivered fresh to distinguished buyers across India, North America, Europe & the Middle East.
+                    </p>
+
+                    <div className="hero-ctas">
+                      <button className="btn-vintage btn-vintage-primary" onClick={() => handleOpenModal(COMMODITY_DATA[0])}>
+                        ✦ Explore Global Trade
+                      </button>
+                      <a href="#catalog" className="btn-vintage btn-vintage-outline">
+                        📦 View Product Catalogue
+                      </a>
+                    </div>
+
+                    <div className="harvest-live-card">
+                      <div>
+                        <span style={{ fontSize: '0.75rem', fontFamily: 'Cinzel, serif', color: 'var(--gold-primary)', letterSpacing: '1.5px', display: 'block' }}>2026 EXPORT DISPATCH VOLUME</span>
+                        <div className="harvest-counter-val">{harvestCount.toLocaleString()} Metric Tons</div>
+                      </div>
+                      <div style={{ borderLeft: '2px solid var(--border-gold)', paddingLeft: '1.2rem' }}>
+                        <span style={{ fontSize: '0.85rem', color: 'var(--ink-chestnut)' }}>Quality Certification</span><br />
+                        <strong style={{ color: 'var(--ink-primary)', fontSize: '1.05rem' }}>APEDA & FSSAI Certified</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="hero-visual-frame reveal-on-scroll" style={{ transitionDelay: '0.2s' }}>
+                    <div className="vintage-frame">
+                      <img src="assets/images/hero.png" alt="Agricultural Import Export Presentation" className="vintage-img" />
+                    </div>
+                    <div className="hero-floating-badge">
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                        <span style={{ fontSize: '1.3rem' }}>🏅</span>
+                        <div>
+                          <strong style={{ fontFamily: 'Cinzel, serif', color: 'var(--gold-primary)', fontSize: '0.85rem' }}>GLOBAL TRADE WARRANT</strong><br />
+                          <span style={{ fontSize: '0.78rem', color: 'var(--ink-chestnut)' }}>APEDA, FSSAI & Phytosanitary Sealed</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Press Strip */}
+            <div className="press-strip reveal-on-scroll">
+              <div className="container">
+                <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem', textAlign: 'center' }}>
+                  <div className="press-item">"The gold standard of Indian Agro Exporters." — <em>Economic Times Trade</em></div>
+                  <div className="press-item">"Air-freighted Alphonso & Basmati of supreme quality." — <em>Vogue Gourmet</em></div>
+                  <div className="press-item">"Trusted by importers across US, UK & Middle East." — <em>The Hindu Commerce</em></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Trust Strip */}
+            <div style={{ background: 'var(--bg-card-parchment)', borderBottom: '2px solid var(--gold-primary)', padding: '1.5rem 0' }} className="reveal-on-scroll">
+              <div className="container">
+                <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap', gap: '1.2rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: 'Cinzel, serif', fontSize: '0.8rem', color: 'var(--gold-primary)', letterSpacing: '1px' }}>
+                    <span>🥭</span> Fresh Fruits & GI Alphonso
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: 'Cinzel, serif', fontSize: '0.8rem', color: 'var(--gold-primary)', letterSpacing: '1px' }}>
+                    <span>🌶️</span> High-Curcumin Spices
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: 'Cinzel, serif', fontSize: '0.8rem', color: 'var(--gold-primary)', letterSpacing: '1px' }}>
+                    <span>🌾</span> 1121 Aged Basmati Rice
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: 'Cinzel, serif', fontSize: '0.8rem', color: 'var(--gold-primary)', letterSpacing: '1px' }}>
+                    <span>✈️</span> Cold-Chain Global Freight
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Founder's Letter & Heritage */}
+            <section className="section section-with-watermark" id="heritage" style={{ background: 'var(--bg-parchment-dark)' }}>
+              <div className="container">
+                <div className="founders-letter-card reveal-on-scroll">
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
+                        <div className="wax-seal-badge">
+                          <span className="wax-seal-icon">CG</span>
+                          <span>38 YEARS OF AGRICULTURAL EXCELLENCE • ANNO 1988</span>
+                        </div>
+                        <button className="btn-vintage btn-vintage-outline" onClick={toggleAudio} style={{ fontSize: '0.78rem', padding: '0.4rem 0.9rem' }}>
+                          {audioPlaying ? '⏸️ Pause Master\'s Note' : '🔊 Listen to Founder\'s Note'}
+                        </button>
+                      </div>
+
+                      {audioPlaying && (
+                        <div style={{ padding: '0.8rem 1.2rem', background: '#0a1810', color: 'var(--gold-bright)', borderRadius: 'var(--radius-sm)', marginBottom: '1.5rem', fontSize: '0.85rem', fontFamily: 'Cinzel, serif' }}>
+                          🎵 "Playing voice transcript: Founder Shri Chandrakant G. Patil speaks on CG Brothers' 38-year agricultural import-export legacy..."
+                        </div>
+                      )}
+
+                      <h2 className="font-serif" style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.5rem)', color: 'var(--ink-primary)', marginBottom: '1rem' }}>
+                        "Four Decades of Nurturing Global Trade Trust"
+                      </h2>
+                      <p style={{ color: 'var(--ink-chestnut)', fontSize: '1.02rem', lineHeight: '1.8', marginBottom: '1.2rem' }}>
+                        Established in 1988, CG Brothers has grown from a premier coastal orchard merchant in Pawas & Devgad into a full-scale international agricultural import and export house. We harvest and source directly from certified estates across India.
+                      </p>
+                      <p style={{ color: 'var(--ink-chestnut)', fontSize: '1.02rem', lineHeight: '1.8' }}>
+                        Whether supplying premium Alphonso mangoes to luxury retailers or shipping full container loads of 1121 XXL Basmati and high-curcumin Salem turmeric overseas, our promise of purity, lab testing, and cold-chain integrity remains uncompromised.
+                      </p>
+                      <span className="founders-signature">
+                        — Shri Chandrakant G. Patil & Family, CG Brothers Import-Export House
+                      </span>
+                    </div>
+
+                    <div style={{ minWidth: 0, textAlign: 'center' }}>
+                      <div className="vintage-frame">
+                        <img src="assets/images/orchard.png" alt="CG Brothers Heritage Orchards Established 1988" className="vintage-img" style={{ maxHeight: '380px' }} />
+                      </div>
+                      <span style={{ fontSize: '0.78rem', fontFamily: 'Cinzel, serif', color: 'var(--gold-primary)', letterSpacing: '1px', marginTop: '0.8rem', display: 'block' }}>
+                        ✦ EST. 1988 • HERITAGE COASTAL ORCHARDS & EXPORT LOGISTICS HUB ✦
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Product & Commodity Catalogue Section */}
+            <section className="section section-with-watermark" id="catalog">
+              <div className="container">
+                <div className="section-title-wrap reveal-on-scroll">
+                  <span className="section-label">✦ AGRICULTURAL TRADE CATALOGUE ✦</span>
+                  <h2 className="section-main-title font-serif">
+                    Import & Export <span className="text-mango-gradient">Commodity Portfolio</span>
+                  </h2>
+                  <p className="section-desc">Hand-picked fresh produce, aromatic spices, aged Basmati rice, and specialized cold-chain logistics for domestic and international buyers.</p>
+                </div>
+
+                {/* Category Filter Pills */}
+                <div className="category-filter-wrap reveal-on-scroll">
+                  {['All', 'Fruits', 'Spices', 'Grains', 'Commodities', 'Logistics', 'Gifting'].map(cat => (
+                    <button key={cat} className={`filter-pill ${categoryFilter === cat ? 'active' : ''}`} onClick={() => setCategoryFilter(cat)}>
+                      {cat === 'All' ? 'All Commodities' : cat}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="varieties-grid">
+                  {filteredCommodities.map((item, index) => (
+                    <div key={item.id} className="variety-card visible" style={{ transitionDelay: `${index * 0.05}s` }}>
+                      <div className="variety-thumb">
+                        <img src={item.image} alt={item.name} loading="lazy" />
+                        <span className="variety-gi-tag">{item.tag}</span>
+                      </div>
+                      <div className="variety-body">
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
+                          <span className="variety-origin">📍 {item.origin}</span>
+                          <span style={{ fontSize: '0.82rem', color: 'var(--gold-primary)', fontWeight: '700' }}>★ {item.rating} ({item.reviewsCount})</span>
+                        </div>
+                        <h3 className="variety-title font-serif">{item.name}</h3>
+                        <p className="variety-desc">{item.desc}</p>
+
+                        <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', margin: '0.8rem 0' }}>
+                          {item.flavors.map((flv, idx) => (
+                            <span key={idx} className="flavor-pill">{flv}</span>
+                          ))}
+                        </div>
+
+                        <div className="sensory-bars">
+                          <div className="sensory-row">
+                            <span style={{ fontWeight: '600', color: 'var(--ink-primary)' }}>Grade / Specs ({item.brix}):</span>
+                            <div className="meter-track">
+                              <div className="meter-fill" style={{ width: `${item.sweetness}%` }} data-fill={`${item.sweetness}%`}></div>
+                            </div>
+                          </div>
+                          <div className="sensory-row">
+                            <span style={{ color: 'var(--ink-chestnut)' }}>Purity Index:</span>
+                            <div className="meter-track">
+                              <div className="meter-fill" style={{ width: `${item.aroma}%` }} data-fill={`${item.aroma}%`}></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="variety-footer">
+                          <div>
+                            <div className="variety-price">{item.priceDozen}</div>
+                            <span style={{ fontSize: '0.78rem', color: '#888' }}>{item.avgWeight}</span>
+                          </div>
+                          <div style={{ display: 'flex', gap: '0.4rem' }}>
+                            <button className="btn-vintage btn-vintage-outline" onClick={() => addToCart(item)} title="Add to Order">
+                              🛒 Order
+                            </button>
+                            <button className="btn-vintage btn-vintage-primary" onClick={() => handleOpenModal(item)}>
+                              ✦ Inquiry
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Custom Orders & B2B Contracting */}
+            <section className="section" id="customizer" style={{ background: 'var(--bg-parchment-dark)' }}>
+              <div className="container">
+                <div className="customizer-box reveal-on-scroll">
+                  <div className="customizer-grid">
+                    <div style={{ minWidth: 0 }}>
+                      <span className="section-label">✦ B2B CONTRACTS & CUSTOM ORDERS ✦</span>
+                      <h2 className="font-serif" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', marginBottom: '1rem' }}>
+                        Custom Import & Export Orders
+                      </h2>
+                      <p style={{ color: 'var(--ink-chestnut)', marginBottom: '1.8rem' }}>
+                        Select your commodity category and packaging format for domestic dispatch or international air/ocean cargo.
+                      </p>
+
+                      <div style={{ marginBottom: '1.5rem' }}>
+                        <span className="section-label" style={{ fontSize: '0.75rem' }}>1. SELECT COMMODITY CATEGORY</span>
+                        <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                          {COMMODITY_DATA.map(m => (
+                            <button key={m.id} className={`option-pill ${customMango.id === m.id ? 'active' : ''}`} onClick={() => setCustomMango(m)}>
+                              {m.name.split(' ')[0]} {m.name.split(' ')[1] || ''}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div style={{ marginBottom: '1.5rem' }}>
+                        <span className="section-label" style={{ fontSize: '0.75rem' }}>2. CHOOSE PACKAGING / SHIPMENT FORMAT</span>
+                        <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                          {["1 Dozen Executive Box", "Palletized Air Freight", "20ft FCL Container Load"].map(size => (
+                            <button key={size} className={`option-pill ${customSize === size ? 'active' : ''}`} onClick={() => setCustomSize(size)}>
+                              {size}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div style={{ marginTop: '1.8rem', padding: '1.2rem', background: 'var(--bg-parchment)', border: '1.5px solid var(--gold-primary)', borderRadius: 'var(--radius-sm)' }}>
+                        <span className="section-label" style={{ fontSize: '0.75rem' }}>CHECK DELIVERY PINCODE / PORT CODE</span>
+                        <div style={{ display: 'flex', gap: '0.6rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
+                          <input type="text" value={pincode} onChange={e => setPincode(e.target.value)} className="form-input" placeholder="Enter Pincode or Port Code" maxLength="10" style={{ flex: 1, minWidth: '180px' }} />
+                          <button className="btn-vintage btn-vintage-outline" onClick={handleCheckPincode}>Check Logistics</button>
+                        </div>
+                        {pincodeStatus && (
+                          <div style={{ marginTop: '0.6rem', fontSize: '0.88rem', color: pincodeStatus.success ? '#0a1810' : '#96281b', fontWeight: pincodeStatus.success ? '700' : 'normal' }}>
+                            {pincodeStatus.text}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    <div style={{ background: 'var(--bg-card-parchment)', border: '2px solid var(--gold-primary)', borderRadius: 'var(--radius-sm)', padding: '2rem', textAlign: 'center', boxShadow: 'var(--shadow-card)' }}>
+                      <span className="section-label">SELECTED TRADE SPECIFICATION</span>
+                      <h3 className="font-serif text-gold-gradient" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.8rem)', margin: '0.6rem 0' }}>{customMango.name}</h3>
+                      <p style={{ color: 'var(--ink-chestnut)', fontSize: '0.88rem', marginBottom: '1.2rem' }}>{customSize} • Direct Merchant Dispatch</p>
+
+                      <div style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.2rem, 3.5vw, 2.8rem)', fontWeight: '800', color: 'var(--ink-primary)', marginBottom: '1.5rem' }}>
+                        {customMango.priceDozen}
+                      </div>
+
+                      <button className="btn-vintage btn-vintage-primary" style={{ width: '100%' }} onClick={() => handleOpenModal(customMango)}>
+                        ✦ Request B2B Trade Quote
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Quality & Phytosanitary Protocol */}
+            <section className="section" id="protocol">
+              <div className="container">
+                <div className="section-title-wrap reveal-on-scroll">
+                  <span className="section-label">✦ EXPORT QUALITY STANDARDS ✦</span>
+                  <h2 className="section-main-title font-serif">
+                    Our Quality & <span className="text-gold-gradient">Phytosanitary Protocol</span>
+                  </h2>
+                  <p className="section-desc">How CG Brothers guarantees international food safety, lab testing, and cold-chain integrity across every shipment.</p>
+                </div>
+
+                <div className="reveal-on-scroll">
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
+                    <div style={{ minWidth: 0 }}>
+                      <div style={{ display: 'flex', borderBottom: '2px solid var(--border-gold)', gap: '0.5rem', flexWrap: 'wrap' }}>
+                        <button className={`protocol-tab-btn ${activeTab === 'unboxing' ? 'active' : ''}`} onClick={() => setActiveTab('unboxing')}>
+                          1. APEDA & Lab Inspection
+                        </button>
+                        <button className={`protocol-tab-btn ${activeTab === 'straw' ? 'active' : ''}`} onClick={() => setActiveTab('straw')}>
+                          2. Organic Straw Maturation
+                        </button>
+                        <button className={`protocol-tab-btn ${activeTab === 'scent' ? 'active' : ''}`} onClick={() => setActiveTab('scent')}>
+                          3. Cold-Chain Palletization
+                        </button>
+                        <button className={`protocol-tab-btn ${activeTab === 'ritual' ? 'active' : ''}`} onClick={() => setActiveTab('ritual')}>
+                          4. Air & Ocean Dispatch
+                        </button>
+                      </div>
+
+                      <div className="protocol-tab-content">
+                        {activeTab === 'unboxing' && (
+                          <div>
+                            <h3 className="font-serif" style={{ color: 'var(--gold-dark)', marginBottom: '0.6rem' }}>Step 1: APEDA & Lab Phytosanitary Inspection</h3>
+                            <p style={{ color: 'var(--ink-chestnut)', lineHeight: '1.8' }}>Every export batch undergoes lab sampling for sugar Brix, pesticide residue testing, and phytosanitary health clearance by Govt. APEDA inspectors prior to packing.</p>
+                          </div>
+                        )}
+                        {activeTab === 'straw' ? (
+                          <div>
+                            <h3 className="font-serif" style={{ color: 'var(--gold-dark)', marginBottom: '0.6rem' }}>Step 2: Organic Rice Straw Maturation</h3>
+                            <p style={{ color: 'var(--ink-chestnut)', lineHeight: '1.8' }}>Fruits are nested in chemical-free organic rice straw beds at room temperature. We strictly prohibit chemical carbide gas, ensuring pure natural flavor development.</p>
+                          </div>
+                        ) : null}
+                        {activeTab === 'scent' && (
+                          <div>
+                            <h3 className="font-serif" style={{ color: 'var(--gold-dark)', marginBottom: '0.6rem' }}>Step 3: Insulated Cold-Chain Palletization</h3>
+                            <p style={{ color: 'var(--ink-chestnut)', lineHeight: '1.8' }}>Produce is packed into climate-controlled insulated cartons with thermal barrier linings, maintaining a steady 12°C - 14°C temperature profile throughout cargo transit.</p>
+                          </div>
+                        )}
+                        {activeTab === 'ritual' && (
+                          <div>
+                            <h3 className="font-serif" style={{ color: 'var(--gold-dark)', marginBottom: '0.6rem' }}>Step 4: Air & Ocean Freight Express Dispatch</h3>
+                            <p style={{ color: 'var(--ink-chestnut)', lineHeight: '1.8' }}>Air shipments fly via direct cargo routes to London, Dubai, New York, and Singapore within 48 hours. Bulk commodities ship in 20ft/40ft refrigerated reefer containers.</p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    <div style={{ minWidth: 0, textAlign: 'center' }}>
+                      <div className="vintage-frame">
+                        <img src="assets/images/mangoes.png" alt="Phytosanitary & Lab Quality Inspection" className="vintage-img" style={{ maxHeight: '360px' }} />
+                      </div>
+                      <span style={{ fontSize: '0.78rem', fontFamily: 'Cinzel, serif', color: 'var(--gold-primary)', letterSpacing: '1px', marginTop: '0.8rem', display: 'block' }}>
+                        ✦ APEDA CERTIFIED • 100% PHYTOSANITARY & COLD-CHAIN INTEGRITY ✦
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Traceability Section */}
+            <section className="section section-with-watermark" id="traceability" style={{ background: 'var(--bg-parchment-dark)' }}>
+              <div className="container">
+                <div className="traceability-card reveal-on-scroll">
+                  <div style={{ minWidth: 0 }}>
+                    <span className="section-label">✦ GLOBAL PROVENANCE & AUTHENTICITY ✦</span>
+                    <h2 className="font-serif" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.2rem)', marginBottom: '0.8rem' }}>
+                      Scan & Trace Your Export Shipment
+                    </h2>
+                    <p style={{ color: 'var(--ink-chestnut)', marginBottom: '1.4rem' }}>
+                      Every CG Brothers box and pallet includes a trackable QR code linked directly to the origin farm block, harvest date, lab purity certificate, and bill of lading.
+                    </p>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+                      <div style={{ padding: '0.8rem 1rem', background: 'var(--bg-parchment)', borderLeft: '3px solid var(--gold-primary)', borderRadius: '4px' }}>
+                        <strong style={{ color: 'var(--gold-primary)', fontSize: '0.88rem' }}>📍 GI Tag Certificate</strong>
+                        <p style={{ fontSize: '0.78rem', color: 'var(--ink-chestnut)' }}>Govt. Authorized GI Registry No. 139</p>
+                      </div>
+                      <div style={{ padding: '0.8rem 1rem', background: 'var(--bg-parchment)', borderLeft: '3px solid var(--mango-amber)', borderRadius: '4px' }}>
+                        <strong style={{ color: 'var(--mango-amber)', fontSize: '0.88rem' }}>📜 APEDA & FSSAI</strong>
+                        <p style={{ fontSize: '0.78rem', color: 'var(--ink-chestnut)' }}>Export License No. 11521034000889</p>
+                      </div>
+                    </div>
+
+                    <div className="provenance-seal-card">
+                      <div className="provenance-seal-stamp">CG</div>
+                      <div>
+                        <strong style={{ fontFamily: 'Cinzel, serif', color: 'var(--gold-primary)', fontSize: '0.85rem', letterSpacing: '1px', display: 'block' }}>OFFICIAL PROVENANCE WARRANT NO. 139</strong>
+                        <span style={{ fontSize: '0.82rem', color: 'var(--ink-chestnut)' }}>Certified 100% Export Grade Produce • Signed by CG Brothers Trade Board</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style={{ textAlign: 'center', minWidth: 0 }}>
+                    <div className="vintage-frame">
+                      <img src="assets/images/logistics.png" alt="Global Export Logistics" className="vintage-img" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Testimonials */}
+            <section className="section" id="reviews">
+              <div className="container">
+                <div className="section-title-wrap reveal-on-scroll">
+                  <span className="section-label">✦ GLOBAL TRADE REPUTATION ✦</span>
+                  <h2 className="section-main-title font-serif">
+                    Trusted By Importers & Connoisseurs Worldwide
+                  </h2>
+                </div>
+
+                <div className="reviews-grid">
+                  <div className="review-card reveal-on-scroll">
+                    <div style={{ color: 'var(--gold-primary)', marginBottom: '0.8rem' }}>★★★★★</div>
+                    <p className="review-quote">"CG Brothers Alphonso air freight arrived in London with zero transit damage. Deep saffron aroma and perfect 21° Brix!"</p>
+                    <strong style={{ color: 'var(--ink-primary)' }}>Lord Alistair M. — London, UK</strong>
+                  </div>
+                  <div className="review-card reveal-on-scroll">
+                    <div style={{ color: 'var(--gold-primary)', marginBottom: '0.8rem' }}>★★★★★</div>
+                    <p className="review-quote">"We contracted 20 Tons of 1121 Basmati Rice & Salem Turmeric for our Dubai retail chain. Immaculate export packing."</p>
+                    <strong style={{ color: 'var(--ink-primary)' }}>Tariq Al-Mansoor — Dubai, UAE</strong>
+                  </div>
+                  <div className="review-card reveal-on-scroll">
+                    <div style={{ color: 'var(--gold-primary)', marginBottom: '0.8rem' }}>★★★★★</div>
+                    <p className="review-quote">"Delivered directly to South Bombay. Outstanding tree-ripened Alphonso taste that brings back childhood memories."</p>
+                    <strong style={{ color: 'var(--ink-primary)' }}>Vikramaditya K. — South Bombay</strong>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="section" id="faq" style={{ background: 'var(--bg-parchment-dark)' }}>
+              <div className="container">
+                <div className="section-title-wrap reveal-on-scroll">
+                  <span className="section-label">✦ TRADE INQUIRIES ✦</span>
+                  <h2 className="section-main-title font-serif">
+                    Frequently Asked <span className="text-gold-gradient">Questions</span>
+                  </h2>
+                  <p className="section-desc">Everything you need to know about our agricultural import-export trade, phytosanitary clearance, and shipping.</p>
+                </div>
+
+                <div className="faq-wrap reveal-on-scroll" style={{ maxWidth: '840px', margin: '0 auto' }}>
+                  {FAQ_DATA.map((faq, idx) => (
+                    <div key={idx} className={`faq-item ${openFaq === idx ? 'open' : ''}`}>
+                      <button className="faq-header" onClick={() => toggleFaq(idx)}>
+                        <span>{faq.q}</span>
+                        <span className="faq-icon">+</span>
+                      </button>
+                      <div className="faq-body">
+                        <p>{faq.a}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Grand Closure Section */}
+            <section className="section" id="closure">
+              <div className="container">
+                <div className="grand-closure-card reveal-on-scroll">
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
+                    <div style={{ minWidth: 0 }}>
+                      <div className="closure-badge">
+                        ✦ 2026 GLOBAL TRADE & HARVEST DISPATCH OPEN ✦
+                      </div>
+                      <h2 className="closure-title font-serif">
+                        Partner With India's Premier Agricultural <br />
+                        <span className="text-gold-gradient">Import & Export House Since 1988.</span>
+                      </h2>
+                      <p className="closure-desc">
+                        Direct orchard Hapus allocations, APEDA-certified spices, 1121 Basmati rice, and cold-chain cargo freight booked weekly. Request your trade quote today.
+                      </p>
+
+                      <div className="closure-actions">
+                        <button className="btn-vintage btn-vintage-primary" style={{ padding: '1rem 2.2rem', fontSize: '1rem' }} onClick={() => handleOpenModal(COMMODITY_DATA[0])}>
+                          ✦ Request Global Trade Quote
+                        </button>
+                        <a href="https://wa.me/919876543210" target="_blank" className="btn-vintage btn-vintage-outline" style={{ padding: '1rem 2.2rem', fontSize: '1rem', color: '#faf6ef', borderColor: 'var(--gold-bright)' }}>
+                          💬 Chat with Trade Concierge
+                        </a>
+                      </div>
+
+                      <div className="guarantee-pills-row">
+                        <div className="guarantee-item">
+                          <span>🌐</span> APEDA & FSSAI Certified
+                        </div>
+                        <div className="guarantee-item">
+                          <span>🌿</span> 100% Natural Produce
+                        </div>
+                        <div className="guarantee-item">
+                          <span>✈️</span> 48h Global Air Cargo
+                        </div>
+                        <div className="guarantee-item">
+                          <span>✨</span> Quality Replacement Guarantee
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style={{ minWidth: 0, textAlign: 'center' }}>
+                      <div className="vintage-frame" style={{ borderColor: 'var(--gold-bright)' }}>
+                        <img src="assets/images/gifting.png" alt="CG Brothers Royal VIP Harvest Chest" className="vintage-img" style={{ maxHeight: '380px' }} />
+                      </div>
+                      <span style={{ fontSize: '0.78rem', fontFamily: 'Cinzel, serif', color: 'var(--gold-bright)', letterSpacing: '1px', marginTop: '0.8rem', display: 'block' }}>
+                        ✦ ANNO 2026 • VIP LUXURY HARVEST ALLOCATION CHEST ✦
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+
+          {/* Modal 1: Order / Trade Inquiry Reservation */}
+          {isModalOpen && (
+            <div className="modal-overlay active">
+              <div className="modal-container">
+                <div className="modal-header">
+                  <h3 className="font-serif">✦ Request Trade Quote & Reservation</h3>
+                  <button className="modal-close" onClick={() => setIsModalOpen(false)}>✕</button>
+                </div>
+                <div className="modal-body">
+                  <form onSubmit={handleOrderSubmit}>
+                    <div className="form-group">
+                      <label className="form-label" style={{ fontFamily: 'Cinzel, serif', fontSize: '0.75rem', color: 'var(--gold-primary)' }}>Selected Commodity / Service</label>
+                      <input type="text" value={selectedMango.name} className="form-input" readOnly style={{ fontWeight: '700', color: 'var(--ink-primary)' }} />
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                      <div className="form-group">
+                        <label className="form-label" style={{ fontFamily: 'Cinzel, serif', fontSize: '0.75rem', color: 'var(--gold-primary)' }}>Full Name / Company *</label>
+                        <input type="text" name="custName" className="form-input" placeholder="e.g. Rajesh Singhania / Global Foods UK" required />
+                      </div>
+                      <div className="form-group">
+                        <label className="form-label" style={{ fontFamily: 'Cinzel, serif', fontSize: '0.75rem', color: 'var(--gold-primary)' }}>WhatsApp / Mobile *</label>
+                        <input type="tel" name="custPhone" className="form-input" placeholder="+91 98765 43210" required />
+                      </div>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                      <div className="form-group">
+                        <label className="form-label" style={{ fontFamily: 'Cinzel, serif', fontSize: '0.75rem', color: 'var(--gold-primary)' }}>Destination City & Country *</label>
+                        <input type="text" name="custCity" className="form-input" placeholder="e.g. Mumbai / London / Dubai / New York" required />
+                      </div>
+                    </div>
+                    <button type="submit" className="btn-vintage btn-vintage-primary" style={{ width: '100%', padding: '0.9rem', marginTop: '0.8rem' }}>
+                      ✦ Submit Inquiry & Connect Trade Desk
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Modal 4: Interactive Cart Drawer */}
+          <div className={`cart-drawer-overlay ${isCartOpen ? 'active' : ''}`} onClick={() => setIsCartOpen(false)}>
+            <div className="cart-drawer" onClick={e => e.stopPropagation()}>
+              <div className="cart-drawer-header">
+                <h3 className="font-serif" style={{ color: 'var(--gold-bright)' }}>🛒 Trade Order Cart ({totalItems})</h3>
+                <button className="modal-close" onClick={() => setIsCartOpen(false)}>✕</button>
+              </div>
+              <div className="cart-drawer-body">
+                {cart.length === 0 ? (
+                  <div style={{ textAlign: 'center', padding: '3rem 0', color: 'var(--ink-chestnut)' }}>
+                    <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: '0.8rem' }}>🧺</span>
+                    <p style={{ fontWeight: '600' }}>Your trade order cart is currently empty.</p>
+                    <p style={{ fontSize: '0.85rem', color: '#888', marginTop: '0.4rem' }}>Select your favorite Alphonso boxes, Basmati, or Spices to get started!</p>
+                  </div>
+                ) : (
+                  <div>
+                    {cart.map(item => (
+                      <div key={item.id} className="cart-item">
+                        <img src={item.image} alt={item.name} className="cart-item-img" />
+                        <div style={{ flex: 1 }}>
+                          <strong style={{ fontSize: '0.92rem', color: 'var(--ink-primary)', display: 'block' }}>{item.name}</strong>
+                          <span style={{ fontSize: '0.8rem', color: 'var(--gold-primary)', fontWeight: '700' }}>{item.priceDozen}</span> x {item.qty}
+                        </div>
+                        <button className="btn-vintage btn-vintage-outline" style={{ padding: '0.2rem 0.6rem', fontSize: '0.75rem' }} onClick={() => removeFromCart(item.id)}>
+                          ✕
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+              {cart.length > 0 && (
+                <div className="cart-drawer-footer">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', fontFamily: 'Playfair Display, serif', fontSize: '1.2rem', fontWeight: '800' }}>
+                    <span>Estimated Total:</span>
+                    <span style={{ color: 'var(--gold-dark)' }}>₹ {cartTotal.toLocaleString()}</span>
+                  </div>
+                  <a href={`https://wa.me/919876543210?text=Greetings%20CG%20Brothers!%20I%20would%20like%20to%20place%20an%20import-export%20order%20for:%20${encodeURIComponent(cart.map(i=>`${i.name} (x${i.qty})`).join(', '))}`} target="_blank" className="btn-vintage btn-vintage-primary" style={{ width: '100%', textAlign: 'center' }}>
+                    ✦ Checkout via WhatsApp Concierge
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Social Notification Toast */}
+          {currentToast && (
+            <div className="vintage-toast">
+              <span style={{ fontSize: '1.2rem' }}>📦</span>
+              <div style={{ fontSize: '0.85rem' }}>
+                <div>{currentToast.text}</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--gold-bright)', marginTop: '2px' }}>{currentToast.time}</div>
+              </div>
+              <button className="toast-close" onClick={() => setCurrentToast(null)}>✕</button>
+            </div>
+          )}
+
+          {/* WhatsApp Floating CTA */}
+          <a href="https://wa.me/919876543210" target="_blank" className="whatsapp-float" title="Direct Concierge Chat">
+            💬
+          </a>
+
+          {/* Footer */}
+          <footer className="footer" id="contact">
+            <div className="container">
+              <div className="footer-grid">
+                <div>
+                  <div className="brand-logo" style={{ marginBottom: '1rem' }}>
+                    <div className="logo-crest">CG</div>
+                    <div className="logo-text-group">
+                      <span className="logo-main-title" style={{ color: '#faf6ef' }}>CG BROTHERS</span>
+                      <span className="logo-subtitle" style={{ color: 'var(--gold-bright)' }}>IMPORT & EXPORT HOUSE</span>
+                    </div>
+                  </div>
+                  <p style={{ fontSize: '0.9rem', color: '#d1c5b4' }}>
+                    Official APEDA & FSSAI certified importers and exporters of GI Alphonso, Gir Kesar, Spices, 1121 Basmati & Cold-Chain Logistics.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="footer-title">Commodities</h4>
+                  <ul className="footer-links">
+                    <li><a href="#catalog">Ratnagiri Alphonso Hapus</a></li>
+                    <li><a href="#catalog">Salem High-Curcumin Turmeric</a></li>
+                    <li><a href="#catalog">1121 XXL Basmati Rice</a></li>
+                    <li><a href="#catalog">Global Air & Ocean Freight</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="footer-title">Global Trade Desk</h4>
+                  <p style={{ fontSize: '0.9rem', color: '#faf6ef' }}>📞 +91 98765 43210</p>
+                  <p style={{ fontSize: '0.9rem', color: '#faf6ef' }}>✉️ trade@cgbrothersmangoes.com</p>
+                </div>
+              </div>
+              <div style={{ paddingTop: '1.8rem', borderTop: '2px solid var(--gold-primary)', fontSize: '0.85rem' }}>
+                © ANNO 1988 - 2026 CG Brothers Agricultural Import & Export House. All Rights Reserved. Powered by React 18.
+              </div>
+            </div>
+          </footer>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
